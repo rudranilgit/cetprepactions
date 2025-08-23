@@ -7,3 +7,5 @@ jobs:
         steps:
             - name: GetContext
               run:  echo "${{toJson(github)}}"
+            - name: GetEnvContext
+              run:  echo "${{toJson(env)}}"  
