@@ -4,6 +4,9 @@ on:
 jobs:
     get_context:
         runs-on: ubuntu-latest
+        env:
+            name: local_env
+            date: 23-08-2025
         steps:
             - name: GetContext
               run:  echo "${{toJson(github)}}"
