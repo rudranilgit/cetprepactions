@@ -4,16 +4,20 @@ on:
         branches: [main]
         
 jobs:
-    hello_world:
+    test_run:
         runs-on: ubuntu-latest
         steps:
             - name: checkout code
               uses: actions/checkout@v4
             - name: Install Dependencies
               run:  npm install
-            - name: Code Deploy
-              run:  echo 'DEploying......'    
-
+            - name: Test Run
+              run:  npm test 
+    deploy_run:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Deploy
+              run: echo 'Deploying the code..'        
 
 
 
