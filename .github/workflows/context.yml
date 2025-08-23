@@ -12,3 +12,7 @@ jobs:
               run:  echo "${{toJson(github)}}"
             - name: GetEnvContext
               run:  echo "${{toJson(env)}}"  
+            - name: GetEnvData
+              run: |
+                    echo "Name::${{env.name}}"
+                    echo "DATE::${{env.date}}"    
