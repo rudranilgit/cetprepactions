@@ -1,0 +1,10 @@
+name: ContextDemo
+on:
+    workflow_dispatch:
+jobs:
+    get_context:
+        runs-on: ubuntu-latest
+        steps:
+            - name: GetContext
+              run:  echo ${{toJson(github)}}
+                      
