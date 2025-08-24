@@ -5,7 +5,7 @@ jobs:
     output_demo:
         runs-on : ubuntu-latest
         outputs:
-            user_name: ${{steps.value.outputs.user}}
+            user_name: ${{steps.set_value.outputs.user}}
         steps:
             - name: Set Variable Value
               id: set_value
