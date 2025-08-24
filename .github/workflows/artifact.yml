@@ -27,7 +27,8 @@ jobs:
                 name: build_artifacts
                 path: |
                       dist
-                      '.github\workflows\**.yml'    
+                      index.html
+                      artifact.yml    
     deploy:
         needs: build
         runs-on: ubuntu-latest
