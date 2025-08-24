@@ -14,7 +14,7 @@ jobs:
               run: echo "Hello ${{steps.set_variable_value.outputs.user}}"
     job_two:
         needs: output_demo
-        runs-on: ubuntu_latest
+        runs-on: ubuntu-latest
         steps:
             - name: Get Value
               run:  echo "${{needs.output_demo.outputs.user_name}}"                           
