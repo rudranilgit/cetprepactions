@@ -1,0 +1,36 @@
+name: ArtifactDemo
+on:
+    workflow_dispatch:
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkout code
+              uses: actions/checout@v4
+            - name: install dependency
+              run:  npm ci
+            - name: run test
+              run:  npm test
+    build:
+        needs: test
+        runs-on: ububtu-latest
+        steps:
+            - name: checkout code
+              uses: actions/checkout@v4
+            - name: install dependency
+              run:  npm install
+            - name: build code
+              run:  npm run build
+            - name:  Upload Artifact
+              uses:  actions/upload-artifact@v3
+              with:
+                name: build_artifacts
+                path: |
+                      dist
+                      .github\workflows\*.yml    
+    deploy:
+        needs: build
+        runs-on: ubuntu-latest
+        steps:
+            - name: Deploy code
+              run: echo "Deploying......"            
