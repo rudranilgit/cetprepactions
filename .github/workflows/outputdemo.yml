@@ -8,10 +8,10 @@ jobs:
             user_name: ${{steps.value.outputs.user}}
         steps:
             - name: Set Variable Value
-              id: value
+              id: set_value
               run: echo 'user=RUDRANIL' >> $GITHUB_OUTPUT ';'
             - name: Print Output value
-              run: echo "Hello ${{steps.set_variable_value.outputs.user}}"
+              run: echo "Hello ${{steps.set_value.outputs.user}}"
     job_two:
         needs: output_demo
         runs-on: ubuntu-latest
