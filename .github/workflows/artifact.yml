@@ -27,7 +27,7 @@ jobs:
                 name: build_artifacts
                 path: |
                       dist
-                      .github\workflows\*.yml    
+                      '.github\workflows\**.yml'    
     deploy:
         needs: build
         runs-on: ubuntu-latest
