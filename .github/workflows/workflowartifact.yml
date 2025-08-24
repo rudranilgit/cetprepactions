@@ -2,9 +2,6 @@ name: Upload Workflow Artifacts
 
 on:
   workflow_dispatch:  # Manual trigger
-  push:
-    paths:
-      - '.github/workflows/**'  # Trigger when changes are made in workflows directory
 
 jobs:
   upload-artifacts:

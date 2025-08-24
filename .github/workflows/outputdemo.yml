@@ -1,0 +1,14 @@
+name: Output Demo
+on:
+    workflow_dispatch:
+jobs:
+    output_demo:
+        runs-on : ubuntu-latest
+        outputs:
+            user_name: ${{steps.value.outputs.user}}
+        steps:
+            - name: Set Variable Value
+              id: value
+              run: echo 'user= {RUDRA}' >> $GITHUB_OUTPUT ';'
+            - name: Print Output value
+              run: echo ${{needs.output_demo.outputs.user_name}}.                  
