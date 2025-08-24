@@ -1,0 +1,26 @@
+name: Upload Workflow Artifacts
+
+on:
+  workflow_dispatch:  # Manual trigger
+  push:
+    paths:
+      - '.github/workflows/**'  # Trigger when changes are made in workflows directory
+
+jobs:
+  upload-artifacts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: List workflow files
+        run: |
+          echo "Workflow files found:"
+          ls -la .github/workflows/
+
+      - name: Upload workflow artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: workflow-files
+          path: .github/workflows/
+          retention-days: 7
