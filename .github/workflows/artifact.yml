@@ -13,7 +13,7 @@ jobs:
               run:  npm test
     build:
         needs: test
-        runs-on: ububtu-latest
+        runs-on: ubuntu-latest
         steps:
             - name: checkout code
               uses: actions/checkout@v4
