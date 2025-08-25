@@ -2,7 +2,8 @@ name: Environment Demo
 on:
     workflow_dispatch:
 env:
-    username: rsarker        
+    username: rsarker
+    ml_password: ${{secrets.ML_PASSWORD}}        
 jobs:
     envdemo_test:
         runs-on: ubuntu-latest
@@ -10,4 +11,6 @@ jobs:
             password: 1234test
         steps:
             - name: Get EnvironmentVariable
-              run: echo "${{env.username}}:${{env.password}}"
+              run: |
+                     echo "${{env.username}}:${{env.password}}"
+                     echo "ML PASSWORD:: ${{env.ml_password}}"
