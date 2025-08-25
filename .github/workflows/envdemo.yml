@@ -14,3 +14,11 @@ jobs:
               run: |
                      echo "${{env.username}}:${{env.password}}"
                      echo "ML PASSWORD:: ${{env.ml_password}}"
+    stage_env:
+        runs-on: ubuntu-latest
+        environment: stage
+        env:
+            user: ${{secrets.USERNAME}}
+        steps:
+            - name: GET ENV VALUE
+              run: echo"${{env.user}}"
