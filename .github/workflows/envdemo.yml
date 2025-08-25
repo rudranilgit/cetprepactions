@@ -1,0 +1,13 @@
+name: Environment Demo
+on:
+    workflow_dispatch:
+env:
+    username: rsarker        
+jobs:
+    envdemo_test:
+        runs-on: ubuntu-latest
+        env:
+            password: 1234test
+        steps:
+            - name: Get EnvironmentVariable
+              run: echo "${{env.username}}:${{env.password}}"
