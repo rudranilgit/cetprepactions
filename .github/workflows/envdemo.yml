@@ -21,7 +21,7 @@ jobs:
             user: ${{vars.USERNAME}}
         steps:
             - name: GteContext
-              run: echo "$${{toJson(vars)}}""
+              run: echo "$${{toJson(vars)}}"
             - name: GET ENV VALUE
               run: |
                     echo "${{env.user}}"
