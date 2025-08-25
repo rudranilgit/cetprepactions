@@ -18,7 +18,9 @@ jobs:
         runs-on: ubuntu-latest
         environment: stage
         env:
-            user: ${{secrets.USERNAME}}
+            user: ${{vars.USERNAME}}
         steps:
             - name: GET ENV VALUE
-              run: echo"${{env.user}}"
+              run: |
+                    echo "${{env.user}}"
+                    echo "${{vars.USERNAME}}"
