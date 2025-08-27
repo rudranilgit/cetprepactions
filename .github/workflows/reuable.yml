@@ -12,7 +12,7 @@ on:
                 required: true    
         outputs:
             directory: 
-                value: ${{jobs.outputs.dir}}
+                value: ${{jobs.reusableflow.outputs.dir}}
 jobs:
     reusableflow:
         outputs:
