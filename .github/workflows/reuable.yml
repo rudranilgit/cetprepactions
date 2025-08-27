@@ -10,11 +10,19 @@ on:
         secrets:
             ML_PASSWORD:    
                 required: true    
+        outputs:
+            directory: 
+                value: ${{jobs.outputs.dir}}
 jobs:
     reusableflow:
+        outputs:
+            dir: ${{steps.getdir.outputs.workingdir}}
         runs-on: ubuntu-latest
         steps:
             - name: Print Hello
               run: echo "HELLO ${{inputs.username}}"
             - name: Get Secrets
-              run: echo  "SECRET::${{secrets.ML_PASSWORD}}"        
+              run: echo  "SECRET::${{secrets.ML_PASSWORD}}"   
+            - name: Get dir
+              id: getdir
+              run: echo "workingdir=$(pwd)" >> $GITHUB_OUTPUT       

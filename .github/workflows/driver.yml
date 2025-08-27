@@ -9,4 +9,10 @@ jobs:
     with: 
         username: Moubani
     secrets:
-        ML_PASSWORD: ${{secrets.ML_PASSWORD}}    
+        ML_PASSWORD: ${{secrets.ML_PASSWORD}} 
+  next_job:
+    needs: call-reusable
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Output
+        run: echo"${{needs.call-reusable.outputs.directory}}         
