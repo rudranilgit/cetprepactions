@@ -1,0 +1,12 @@
+name: MainFlow
+on:
+    workflow_dispatch:
+jobs:
+    driverjob:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Step1
+              run: echo "this is step1"
+            - name: Step2
+              uses: ./.github/workflows/reuable.yml
+                         
