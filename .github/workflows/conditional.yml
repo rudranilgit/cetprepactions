@@ -5,21 +5,26 @@ jobs:
     demojob:
         runs-on: ubuntu-latest
         outputs:
-            location: ${{steps.dirval.outputs.workingdir}}
+            location: ${{ steps.dirval.outputs.workingdir }}
         steps:
             - name: Get Location
               id: dirval
-              shell: bash
-              run:  echo 'workingdir=${pwd}' >>$GITHUB_OUTPUT ';'
+              run: |
+                  working_dir=$(pwd)
+                  echo "workingdir=$working_dir" >> $GITHUB_OUTPUT
             - name: Print Value
               id: pval
+              continue-on-error: true  # Allow job to continue even if this step fails
               run: |
-               echo "WORKING DIR ::${{steps.dirval.outputs.workingdir}}" 
-               if [[ "${{ steps.output-step.outputs.output }}" != *"hello"* ]]; then
-                    echo "Output does not contain 'hello'"
-                    exit 1
-                fi
-                echo "Output contains 'hello'
+                  echo "WORKING DIR :: ${{ steps.dirval.outputs.workingdir }}"
+                  if [[ "${{ steps.dirval.outputs.workingdir }}" != *"hello"* ]]; then
+                      echo "Output does not contain 'hello'"
+                      exit 1
+                  fi
+                  echo "Output contains 'hello'"
             - name: FailureStep
               if: steps.pval.outcome == 'failure'
-              run: echo "THE STEP WITH ID PVAL HAS FAILED"                 
+              run: echo "THE STEP WITH ID PVAL HAS FAILED"
+            - name: Final step to ensure job fails if pval failed
+              if: steps.pval.outcome == 'failure'
+              run: exit 1
