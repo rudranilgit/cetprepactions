@@ -1,0 +1,25 @@
+name: conditional
+on:
+    workflow_dispatch:
+jobs:
+    demojob:
+        runs-on: ubuntu-latest
+        outputs:
+            location: ${{steps.dirval.outputs.workingdir}}
+        steps:
+            - name: Get Location
+              id: dirval
+              shell: bash
+              run: pwd echo 'workingdir={}' >>$GITHUB_OUTPUT ';'
+            - name: Print Value
+              id: pval
+              run: |
+               echo "WORKING DIR ::${{steps.dirval.outputs.workingdir}}" 
+               if [[ "${{ steps.output-step.outputs.output }}" != *"hello"* ]]; then
+                    echo "Output does not contain 'hello'"
+                    exit 1
+                fi
+                echo "Output contains 'hello'
+            - name: FailureStep
+              if: steps.pval.outcome == 'failure'
+              run: echo "THE STEP WITH ID PVAL HAS FAILED"                 
