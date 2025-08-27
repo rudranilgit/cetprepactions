@@ -29,3 +29,6 @@ jobs:
                 working_dir=$(pwd)
                 echo "workingdir=$working_dir" >> $GITHUB_OUTPUT
                 echo "$workingdir:::$working_dir"      
+            - name: Use the output
+              run: |
+                echo "The working directory was: ${{ steps.dirval.outputs.workingdir }}"    
