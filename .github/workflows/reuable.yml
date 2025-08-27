@@ -6,9 +6,15 @@ on:
                 description: "The name of the User"
                 type:   string
                 default: "Rudra"
+                required: true
+        secrets:
+            ML_PASSWORD:    
+                required: true    
 jobs:
     reusableflow:
         runs-on: ubuntu-latest
         steps:
             - name: Print Hello
-              run: echo "HELLO ${{inputs.username}}"        
+              run: echo "HELLO ${{inputs.username}}"
+            - name: Get Secrets
+              run: echo  "SECRET::${{secrets.ML_PASSWORD}}"        

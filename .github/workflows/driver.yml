@@ -8,3 +8,5 @@ jobs:
     uses: ./.github/workflows/reuable.yml
     with: 
         username: Moubani
+    secrets:
+        ML_PASSWORD: ${{secrets.ML_PASSWORD}}    
