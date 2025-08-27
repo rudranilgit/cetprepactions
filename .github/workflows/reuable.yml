@@ -31,4 +31,4 @@ jobs:
                 echo "$workingdir:::$working_dir"      
             - name: Use the output
               run: |
-                echo "The working directory was: ${{ steps.dirval.outputs.workingdir }}"    
+                echo "The working directory was: ${{ steps.getdir.outputs.workingdir }}"    
