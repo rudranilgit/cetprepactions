@@ -28,4 +28,4 @@ jobs:
               run: |
                 working_dir=$(pwd)
                 echo "workingdir=$working_dir" >> $GITHUB_OUTPUT
-                echo "${{workingdir}}:::${{working_dir}}"      
+                echo "$workingdir:::$working_dir"      
