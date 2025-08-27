@@ -25,4 +25,6 @@ jobs:
               run: echo  "SECRET::${{secrets.ML_PASSWORD}}"   
             - name: Get dir
               id: getdir
-              run: echo "workingdir=$(pwd)" >> $GITHUB_OUTPUT       
+              run: |
+                working=$(pwd)
+                echo "workingdir=$working" >> $GITHUB_OUTPUT       
