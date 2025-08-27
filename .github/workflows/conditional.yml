@@ -10,7 +10,7 @@ jobs:
             - name: Get Location
               id: dirval
               shell: bash
-              run: pwd echo 'workingdir={}' >>$GITHUB_OUTPUT ';'
+              run:  echo 'workingdir=${pwd}' >>$GITHUB_OUTPUT ';'
             - name: Print Value
               id: pval
               run: |
