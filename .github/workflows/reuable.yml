@@ -27,7 +27,7 @@ jobs:
               id: getdir
               run: |
                 working_dir=$(pwd)
-                echo "workingdir=$working_dir" >> $GITHUB_OUTPUT
+                echo "workingdir=$(pwd)" >> $GITHUB_OUTPUT
                 echo "$workingdir:::$working_dir"      
             - name: Use the output
               run: |
