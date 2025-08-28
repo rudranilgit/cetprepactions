@@ -9,5 +9,5 @@ jobs:
         steps:
             - name: GetNode version
               run: |
-                   nodever = $(node -v)
+                   nodever=$(node -v)
                    echo "Node Version:: $nodever"
