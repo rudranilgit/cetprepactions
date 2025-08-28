@@ -1,0 +1,13 @@
+name: Docker demo
+on:
+    workflow_dispatch:
+jobs:
+    dockerdemo:
+        runs-on: ubuntu-latest
+        container:
+            image: node:16
+        steps:
+            - name: GetNode version
+              run: |
+                   nodever = $(node -v)
+                   echo "Node Version:: $nodever"
