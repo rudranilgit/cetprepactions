@@ -1,0 +1,21 @@
+name: MatrixDemo
+description : This is a demo for MatrixDemo
+on:
+  workflow_dipatch
+inputs:
+  region:
+    type: choice
+    value: uat
+    options:
+      - dev
+      - int
+jobs:
+  matrix-job:
+  runs-on: ubuntu-latest
+  strategy:
+    matrix:
+      animal: [dog,cow]
+      color:  [red,blue]
+  steps:
+    - name: Print Values
+      run: echo "${{matrix.color}} and ${{matrix.animal}}""           
