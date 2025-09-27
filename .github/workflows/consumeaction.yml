@@ -6,6 +6,6 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Demo-ActionLearner
-              uses: rudranilgit/testaction@v2
+              uses: rudranilgit/testaction@v3.0
               with:
                 user-name: "THE BEEKEEPER"
