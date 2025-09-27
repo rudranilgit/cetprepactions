@@ -1,0 +1,26 @@
+name: MatrixDemo
+description: This is a demo for MatrixDemo
+on:
+  workflow_dispatch:
+    inputs:
+      region:
+        type: choice
+        description: Select region
+        required: true
+        default: uat
+        options:
+          - dev
+          - int
+          - uat
+jobs:
+  matrix-job:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        animal: [dog, cow]
+        color: [red, blue]
+        include:
+          - region: ${{ github.event.inputs.region }}
+    steps:
+      - name: Print Values
+        run: echo "${{ matrix.color }} and ${{ matrix.animal }} in region ${{ matrix.region }}"
