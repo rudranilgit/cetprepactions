@@ -8,4 +8,4 @@ jobs:
             - name: Demo-ActionLearner
               uses: rudranilgit/testaction@v2
               with:
-                user-name: "JOHN WICK"
+                user-name: "THE BEEKEEPER"
