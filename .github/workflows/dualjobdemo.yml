@@ -1,0 +1,24 @@
+name: DUAL-JOb
+on:
+    workflow_dispatch:
+        inputs:
+            region:
+                type: choice
+                default: dev
+                options:
+                    - uat
+                    - int
+            greet:
+                type: string
+                default: "Rudra"
+jobs:
+    job-1:
+        runs-on: ubuntu_latest
+        steps:
+            - name: Greet User
+              run: echo "HELLO ${{inputs.greet}}"                 
+    job-2:
+        runs-on: ubuntu_latest
+        steps:
+            - name: Greet in ENV 
+              run: echo "HELLO welcome to env ${{inputs.region}}"
