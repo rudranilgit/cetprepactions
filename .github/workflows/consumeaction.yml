@@ -1,0 +1,11 @@
+name: consume-action
+on:
+    workflow_dispatch:
+jobs:
+    consumer:
+        runs-on: ubuntu_latest
+        steps:
+            - name: Demo-ActionLearner
+              uses: rudranilgit/testaction@v2
+              with:
+                user-name: "JOHN WICK"
