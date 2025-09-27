@@ -8,6 +8,7 @@ on:
                 options:
                     - uat
                     - int
+                    - dev
             greet:
                 type: string
                 default: "Rudra"
