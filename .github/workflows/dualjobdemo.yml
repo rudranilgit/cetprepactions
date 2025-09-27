@@ -14,7 +14,7 @@ on:
                 default: "Rudra"
 jobs:
     job-1:
-        runs-on: ubuntu_latest
+        runs-on: ubuntu-latest
         steps:
             - name: Greet User
               run: echo "HELLO ${{inputs.greet}}"                 
